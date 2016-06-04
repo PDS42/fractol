@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/02 17:38:54 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/04 14:43:09 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ typedef struct	s_fract
 	double		y2;
 	int			zoom;
 	int			iter_max;
-	double		h;
-	double		img_x;
-	double		img_y;
 	double		c_r;
 	double		c_i;
 	double		z_r;
@@ -61,25 +58,24 @@ typedef struct	s_img
 	int		mlx_width;
 }				t_img;
 
-typedef struct	s_math
+typedef struct	s_all
 {
-	int		dx;
-	int		dy;
-	int		error;
-	int		derror;
-	int		steep;
-	t_coord	dot;
-}				t_math;
+	t_mlx	*mlx;
+	t_img	*img;
+	t_fract	*fract;
+	t_coord	*coord;
+}				t_all;
 
 /*
 **Fonctions
 */
 
-void	draw_mandelbrot(t_fract *mand, t_img *img);
-t_img	set_image(t_mlx *mlx);
+void	draw_mandelbrot(t_all *all);
+t_img	*set_image(t_all *all);
 int		key_handler(int keu, void *param);
-t_fract	*mandel(void);
-t_fract	*init_fract_struct(char *argv);
+t_fract	*mandel(t_all *all);
+t_fract	*init_fract_struct(t_all *all, char *argv);
 void	put_pixel_to_image(t_img *img, int y, int x, int color);
+t_all	*init_all(t_all *all);
 
 #endif

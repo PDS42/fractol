@@ -6,38 +6,48 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 17:04:55 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/02 17:19:36 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/04 14:45:50 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_mlx	mlxinit(int width, int height, char *name)
+t_all	*init_all(t_all *all)
 {
-	t_mlx	mlx;
+	all->img = (t_img*)ft_memalloc(sizeof(t_img));
+	all->mlx = (t_mlx*)ft_memalloc(sizeof(t_mlx));
+	all->coord = (t_coord*)ft_memalloc(sizeof(t_coord));
+	all->fract = (t_fract*)ft_memalloc(sizeof(t_fract));
+	return (all);
+}
 
-	mlx.ptr = mlx_init();
-	mlx.win = mlx_new_window(mlx.ptr, width, height, name);
-	mlx.height = height;
-	mlx.width = width;
-	return (mlx);
+t_mlx	*mlxinit(t_all *all, int width, int height, char *name)
+{
+	all->mlx->ptr = mlx_init();
+	all->mlx->win = mlx_new_window(all->mlx->ptr, width, height, name);
+	all->mlx->height = height;
+	all->mlx->width = width;
+	return (all->mlx);
 }
 
 int		main(int ac, char **av)
 {
-	t_mlx	mlx;
-	t_img	img;
-	t_fract	fract;
+	t_mlx	*mlx;
+	t_img	*img;
+	t_fract	*fract;
+	t_all	*all;
 
+	all = (t_all*)ft_memalloc(sizeof(t_all));
 	if (ac == 2)
 	{
-		mlx = mlxinit(1000, 1000, "fractol");
-		img = set_image(&mlx);
-		fract = *init_fract_struct(av[1]); 
-		draw_mandelbrot(&fract, &img);
-		mlx_put_image_to_window(mlx.ptr, mlx.win, img.ptr, 0, 0);
-		mlx_hook(mlx.win, 2, 0, key_handler, &fract);
-		mlx_loop(mlx.ptr);
+		all = init_all(all);
+		mlx = mlxinit(all, 1000, 1000, "fractol");
+		img = set_image(all);
+		fract = init_fract_struct(all, av[1]); 
+		draw_mandelbrot(all);
+		mlx_put_image_to_window(all->mlx->ptr, all->mlx->win, all->img->ptr, 0, 0);
+		mlx_hook(all->mlx->win, 2, 0, key_handler, &fract);
+		mlx_loop(all->mlx->ptr);
 		return (0);
 	}
 	return (0);

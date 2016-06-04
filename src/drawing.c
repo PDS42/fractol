@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/22 12:41:44 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/02 17:31:58 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/04 12:51:54 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	put_pixel_to_image(t_img *img, int y, int x, int color)
 {
+	/*ft_putnbr(img->mlx_width);*/
 	((int*)(img->addr))[y * img->mlx_width + x] = color;
 }
