@@ -6,53 +6,56 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:23:49 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/04 15:11:53 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/04 18:26:21 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void	draw_mandelbrot(t_all *all)
 {
 	int		tmp;
-	int		color;
+	int		count = 0;
+	int		count2 = 0;
 
-	color = 0x00FFFF;
 	all->fract->c.x = -1;
-	while (++all->fract->c.x < 1000)
+	while (++all->fract->c.x < all->mlx->width)
 	{
 		all->fract->c.y = -1;
-		while (++all->fract->c.y < 1000)
+		while (++all->fract->c.y < all->mlx->height)
 		{
-			all->fract->c_r = all->fract->c.x / all->fract->zoom + all->fract->x1;	
-			all->fract->c_i = all->fract->c.y / all->fract->zoom + all->fract->y1;	
+			all->fract->c_r = ((all->fract->c.x * (all->fract->x2 - all->fract->x1))
+				   	/ all->fract->zoom + all->fract->x1);
+			all->fract->c_i = ((all->fract->c.y * (all->fract->y2 - all->fract->y1))
+				   	/ all->fract->zoom + all->fract->y1);
 			all->fract->z_r = 0;
 			all->fract->z_i = 0;
-			all->fract->iter= 0;
-			while (((all->fract->z_r * all->fract->z_r) - (all->fract->z_i * all->fract->z_i + all->fract->c_r)) < 4 && all->fract->iter < all->fract->iter_max)
+			all->fract->iter= -1;
+			while (((all->fract->z_r * all->fract->z_r) - (all->fract->z_i * 
+all->fract->z_i + all->fract->c_r)) < 4 && ++all->fract->iter < all->fract->iter_max)
 			{
 				tmp = all->fract->z_r;
 				all->fract->z_r = (all->fract->z_r * all->fract->z_r) - 
 					(all->fract->z_i * all->fract->z_i) + all->fract->c_r;
-				all->fract->z_i = 2 * all->fract->z_i * tmp + all->fract->c_i;
-				all->fract->iter++;
-				if (all->fract->iter == all->fract->iter_max)
-				{
-					put_pixel_to_image(all->img, all->fract->c.y, 
-							all->fract->c.x, 0xFFFFFF);
-				}
-				else
-				{
-					/*ft_putnbr(all->fract->c.x);*/
-					/*ft_putchar('|');*/
-					/*ft_putnbr(all->fract->c.y);*/
-					/*ft_putchar('\n');*/
-					put_pixel_to_image(all->img, all->fract->c.y, 
-						all->fract->c.x, 0xFFFF00);
-				}
+				all->fract->z_i = (2 * all->fract->z_i * tmp) + all->fract->c_i;
+			}
+			if (all->fract->iter == all->fract->iter_max)
+			{
+				count++;
+				put_pixel_to_image(all->img, all->fract->c.y, 
+					all->fract->c.x, mlx_get_color_value(all->mlx->ptr, 0xFF0000));
+			}
+			else
+			{
+				count2++;
+				put_pixel_to_image(all->img, all->fract->c.y, 
+					all->fract->c.x, all->fract->iter * 255 / all->fract->iter_max);
 			}
 		}
 	}
+	printf("count = %d\n", count);
+	printf("count2 = %d\n", count2);
 }
 
 /*void    mandelbrot1(t_all *all, int t)*/
