@@ -6,7 +6,7 @@
 #    By: prichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 14:39:00 by prichard          #+#    #+#              #
-#    Updated: 2016/06/03 13:22:10 by prichard         ###   ########.fr        #
+#    Updated: 2016/06/06 18:26:51 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,13 @@ SRC_PATH = src
 SRC_NAME = 	main.c\
 			mandelbrot.c\
 			keyhooks.c\
+			move.c\
 			init_fractal.c\
 			drawing.c\
+			fract_compl.c\
+			modify_iter_max.c\
+			zoom.c\
+			mouse_hook.c\
 			image.c
 
 OBJ_PATH = obj

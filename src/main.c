@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 17:04:55 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/04 17:20:03 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/06 18:36:26 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ int		main(int ac, char **av)
 		img = set_image(all);
 		fract = init_fract_struct(all, av[1]); 
 		draw_mandelbrot(all);
-		mlx_put_image_to_window(all->mlx->ptr, all->mlx->win, all->img->ptr, 0, 0);
-		mlx_hook(all->mlx->win, 2, 0, key_handler, &fract);
+		/*mlx_put_image_to_window(all->mlx->ptr, all->mlx->win, all->img->ptr, 0, 0);*/
+		mlx_hook(all->mlx->win,2, 0,  key_handler, all);// changed from mlx_hook
+		mlx_mouse_hook(all->mlx->win, mouse_hook, all);
 		mlx_loop(all->mlx->ptr);
 		return (0);
 	}
+	ft_putendl("Not enough or too much arguments. Need 2.");
 	return (0);
 }
