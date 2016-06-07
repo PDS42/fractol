@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:25:47 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 13:48:39 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ void	unzoom_hook(t_all *all, t_coord coord);
 */
 
 int		mouse_hook(int button, int x, int y, t_all *all);
-void	mouse_funct(int button, t_coord mouse_pos, t_all *all);
-
+void	mouse_funct(int button, int x, int y, t_all *all);
+void	zoom(int key, int x, int y, t_all *all);
 /*
 ** 
 */

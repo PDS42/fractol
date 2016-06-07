@@ -6,12 +6,11 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:23:49 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:34:51 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 14:12:04 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void	draw_mandelbrot(t_all *all)
 {
