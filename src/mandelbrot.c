@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:23:49 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 14:12:04 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:32:42 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	draw_mandelbrot(t_all *all)
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 10, 10, 0xFFFFFF, "iter max:");
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 140, 10, 0xFFFFFF,
 		   	ft_itoa(ALL->iter_max));
+	print_menu(all);
 }
 
 int		draw(t_all *all)
@@ -46,5 +47,7 @@ int		draw(t_all *all)
 		draw_mandelbrot(all);
 	if (ALL->id == 1)
 		draw_julia(all);
+	if (ALL->id == 2)
+		draw_glynn(all);
 	return (0);
 }

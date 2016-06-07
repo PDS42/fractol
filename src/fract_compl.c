@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:31:57 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 13:37:23 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:20:44 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,12 @@ void	julia_values(t_all *all, int x, int y)
 	ALL->z_r = ((x * (ALL->x2 - ALL->x1)) / ALL->zoom + ALL->x1);
 	ALL->z_i = ((y * (ALL->y2 - ALL->y1)) / ALL->zoom + ALL->x1); 
 	ALL->iter = -1;
+}
+
+void	glynn_values(t_all *all, int x, int y)
+{
+	ALL->z_r = x / ALL->zoom + ALL->x1;
+	ALL->z_i = y / ALL->zoom + ALL->y1;
+	ALL->c_r = 0.291;
+	ALL->c_i = 0.006;
 }

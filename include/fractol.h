@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 13:48:39 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:36:49 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "mlx.h"
 #include "libft.h"
+#include <math.h>
 #define ALL all->fract
 
 typedef struct	s_coord
@@ -29,7 +30,7 @@ typedef struct	s_fract
 	double		x2;
 	double		y1;
 	double		y2;
-	float		zoom;//mb pb
+	double		zoom;
 	int			iter_max;
 	double		c_r;
 	double		c_i;
@@ -63,10 +64,10 @@ typedef struct	s_img
 
 typedef struct	s_all
 {
-	t_mlx	*mlx;
-	t_img	*img;
-	t_fract	*fract;
-	t_coord	*coord;
+	t_mlx		*mlx;
+	t_img		*img;
+	t_fract		*fract;
+	t_coord		*coord;
 }				t_all;
 
 /*
@@ -75,18 +76,22 @@ typedef struct	s_all
 
 void	draw_mandelbrot(t_all *all);
 void	draw_julia(t_all *all);
+void	draw_glynn(t_all *all);
 int		draw(t_all *all);
 t_img	*set_image(t_all *all);
 int		key_handler(int key, t_all *all);
 void	key_funct(int key, t_all *all);
+void	key_funct2(int key, t_all *all);
 t_fract	*mandel(t_all *all);
 t_fract	*julia(t_all *all);
+t_fract	*glynn(t_all *all);
 t_fract	*init_fract_struct(t_all *all, char *argv);
 void	put_pixel_to_image(t_img *img, int y, int x, int color);
 t_all	*init_all(t_all *all);
 void	mandel_compl(t_all *all, int x, int y);
 void	mandel_values(t_all *all, int x, int y);
 void	julia_values(t_all *all, int x, int y);
+void	glynn_values(t_all *all, int x, int y);
 
 /*
 ** move.c
@@ -119,8 +124,10 @@ void	unzoom_hook(t_all *all, t_coord coord);
 int		mouse_hook(int button, int x, int y, t_all *all);
 void	mouse_funct(int button, int x, int y, t_all *all);
 void	zoom(int key, int x, int y, t_all *all);
+
 /*
-** 
+** menu.c 
 */
 
+void	print_menu(t_all *all);
 #endif
