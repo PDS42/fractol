@@ -6,7 +6,7 @@
 #    By: prichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 14:39:00 by prichard          #+#    #+#              #
-#    Updated: 2016/06/06 18:26:51 by prichard         ###   ########.fr        #
+#    Updated: 2016/06/06 19:07:40 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = fractol
 SRC_PATH = src
 SRC_NAME = 	main.c\
 			mandelbrot.c\
+			julia.c\
 			keyhooks.c\
 			move.c\
 			init_fractal.c\

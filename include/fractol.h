@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/06 18:27:34 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 11:25:47 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct	s_fract
 	double		z_i;
 	int			iter;
 	int			id;
+	double		zoom_x;
+	double		zoom_y;
 	t_coord		c;
 }				t_fract;
 
@@ -72,16 +74,19 @@ typedef struct	s_all
 */
 
 void	draw_mandelbrot(t_all *all);
+void	draw_julia(t_all *all);
 int		draw(t_all *all);
 t_img	*set_image(t_all *all);
 int		key_handler(int key, t_all *all);
 void	key_funct(int key, t_all *all);
 t_fract	*mandel(t_all *all);
+t_fract	*julia(t_all *all);
 t_fract	*init_fract_struct(t_all *all, char *argv);
 void	put_pixel_to_image(t_img *img, int y, int x, int color);
 t_all	*init_all(t_all *all);
 void	mandel_compl(t_all *all, int x, int y);
 void	mandel_values(t_all *all, int x, int y);
+void	julia_values(t_all *all, int x, int y);
 
 /*
 ** move.c
@@ -113,5 +118,9 @@ void	unzoom_hook(t_all *all, t_coord coord);
 
 int		mouse_hook(int button, int x, int y, t_all *all);
 void	mouse_funct(int button, t_coord mouse_pos, t_all *all);
+
+/*
+** 
+*/
 
 #endif

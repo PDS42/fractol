@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 17:42:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/06 17:57:58 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/06 19:20:11 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ t_fract		*init_fract_struct(t_all *all, char *argv)
 {
 	if (ft_strcmp(argv, "Mandelbrot") == 0)
 		all->fract = mandel(all);
+	else if (ft_strcmp(argv, "Julia") == 0)
+		all->fract = julia(all);
 	else
 	{
 		ft_putendl("Wrong argument type. Use Mandelbrot | Julia");
 		exit(0);
 	}
-	all->fract = mandel(all);
-	   /* else if (ft_strcmp(argv, "Julia") == 0)*/
-		/*fractal = //fonction julia ;*/
 	return (all->fract);
 }
 
@@ -38,4 +37,16 @@ t_fract		*mandel(t_all *all)
 	all->fract->iter_max = 40;
 	all->fract->id = 0;
 	return (all->fract);
+}
+
+t_fract		*julia(t_all *all)
+{
+	ALL->x1 = -1.5;
+	ALL->x2 = 1.5;
+	ALL->y1 = -1.5;
+	ALL->y2 = 1.5;
+	ALL->zoom = 1000;
+	ALL->iter_max = 70;
+	ALL->id = 1;
+	return (ALL);
 }

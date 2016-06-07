@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:23:49 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 11:34:51 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 11:34:14 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <stdio.h>
 
-void	draw_mandelbrot(t_all *all)
+void	draw_julia(t_all *all)
 {
 	double	tmp;
 
@@ -23,7 +23,7 @@ void	draw_mandelbrot(t_all *all)
 		ALL->c.y = -1;
 		while (++ALL->c.y < all->mlx->height)
 		{
-			mandel_values(all, ALL->c.x, ALL->c.y);
+			julia_values(all, ALL->c.x, ALL->c.y);
 			while (((ALL->z_r * ALL->z_r) - (ALL->z_i * 
 				ALL->z_i) + ALL->c_r) < 4 && ++ALL->iter < ALL->iter_max)
 			{
@@ -39,13 +39,4 @@ void	draw_mandelbrot(t_all *all)
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 10, 10, 0xFFFFFF, "iter max:");
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 140, 10, 0xFFFFFF,
 		   	ft_itoa(ALL->iter_max));
-}
-
-int		draw(t_all *all)
-{
-	if (ALL->id == 0)
-		draw_mandelbrot(all);
-	if (ALL->id == 1)
-		draw_julia(all);
-	return (0);
 }
