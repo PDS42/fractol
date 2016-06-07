@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 17:04:55 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:29:34 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:44:01 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ int		main(int ac, char **av)
 		all = init_all(all);
 		mlx = mlxinit(all, 1000, 1000, "fractol");
 		img = set_image(all);
-		fract = init_fract_struct(all, av[1]); 
+		fract = init_fract_struct(all, av[1]);
 		draw(all);
-		print_menu(all);
-		mlx_hook(all->mlx->win,2, 0,  key_handler, all);// changed from mlx_hook
+		mlx_hook(all->mlx->win, 2, 0, key_handler, all);
 		mlx_mouse_hook(all->mlx->win, mouse_hook, all);
 		mlx_loop(all->mlx->ptr);
 		return (0);

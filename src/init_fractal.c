@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 17:42:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:23:52 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:44:28 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_fract		*init_fract_struct(t_all *all, char *argv)
 t_fract		*mandel(t_all *all)
 {
 	all->fract->x1 = -2.1;
-	all->fract->x2 = 0.6;	
+	all->fract->x2 = 0.6;
 	all->fract->y1 = -1.2;
 	all->fract->y2 = 1.2;
 	all->fract->zoom = 1000;
@@ -46,7 +46,7 @@ t_fract		*julia(t_all *all)
 	ALL->x2 = 1.5;
 	ALL->y1 = -1.5;
 	ALL->y2 = 1.5;
-	ALL->zoom= 1000;
+	ALL->zoom = 1000;
 	ALL->iter_max = 70;
 	ALL->id = 1;
 	return (ALL);
