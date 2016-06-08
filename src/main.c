@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 17:04:55 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:44:01 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 13:53:54 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ t_all	*init_all(t_all *all)
 
 t_mlx	*mlxinit(t_all *all, int width, int height, char *name)
 {
-	all->mlx->ptr = mlx_init();
+	if ((all->mlx->ptr = mlx_init()) == NULL)
+	{
+		ft_putendl("mlx_init error");
+		exit(0);
+	}
 	all->mlx->win = mlx_new_window(all->mlx->ptr, width, height, name);
 	all->mlx->height = height;
 	all->mlx->width = width;

@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:31:57 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:47:50 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 15:12:52 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ void	glynn_values(t_all *all, int x, int y)
 {
 	ALL->z_r = x / ALL->zoom + ALL->x1;
 	ALL->z_i = y / ALL->zoom + ALL->y1;
-	ALL->c_r = 0.291;
-	ALL->c_i = 0.006;
+	ALL->c_r = 0 + (double)x / 250.0;
+	ALL->c_i = 0 + (double)y / 250.0;
+	ALL->iter = -1;
+}
+
+void	ship_values(t_all *all, int x, int y)
+{
+	ALL->c_r = ((x * (ALL->x2 - ALL->x1)) / ALL->zoom + ALL->x1);
+	ALL->c_i = ((y * (ALL->y2 - ALL->y1)) / ALL->zoom + ALL->y1);
+	ALL->z_r = 0;
+	ALL->z_i = 0;
+	ALL->iter = -1;
 }

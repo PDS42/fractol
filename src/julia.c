@@ -6,12 +6,11 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:23:49 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:47:16 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 15:14:02 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void	draw_julia(t_all *all)
 {

@@ -6,7 +6,7 @@
 #    By: prichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 14:39:00 by prichard          #+#    #+#              #
-#    Updated: 2016/06/07 18:29:08 by prichard         ###   ########.fr        #
+#    Updated: 2016/06/08 15:03:18 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_PATH = src
 SRC_NAME = 	main.c\
 			mandelbrot.c\
 			julia.c\
-			glynn.c\
+			ship.c\
 			keyhooks.c\
 			move.c\
 			init_fractal.c\
@@ -26,6 +26,7 @@ SRC_NAME = 	main.c\
 			zoom.c\
 			mouse_hook.c\
 			menu.c\
+			distort.c\
 			image.c
 
 OBJ_PATH = obj

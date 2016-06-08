@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 18:23:56 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:46:25 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 15:10:21 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	print_menu(t_all *all)
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 10, 120, 0xFFFFFF,
 			"-Press 'j' to switch to Julia");
 	mlx_string_put(all->mlx->ptr, all->mlx->win, 10, 140, 0xFFFFFF,
-			"-Press 'p' to switch to Glynn");
+			"-Press 'p' to switch to Ship");
 }

@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 19:01:14 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 15:13:34 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct	s_all
 
 void			draw_mandelbrot(t_all *all);
 void			draw_julia(t_all *all);
-void			draw_glynn(t_all *all);
+void			draw_ship(t_all *all);
 int				draw(t_all *all);
 t_img			*set_image(t_all *all);
 int				key_handler(int key, t_all *all);
@@ -84,14 +84,14 @@ void			key_funct(int key, t_all *all);
 void			key_funct2(int key, t_all *all);
 t_fract			*mandel(t_all *all);
 t_fract			*julia(t_all *all);
-t_fract			*glynn(t_all *all);
+t_fract			*ship(t_all *all);
 t_fract			*init_fract_struct(t_all *all, char *argv);
 void			put_pixel_to_image(t_img *img, int y, int x, int color);
 t_all			*init_all(t_all *all);
 void			mandel_compl(t_all *all, int x, int y);
 void			mandel_values(t_all *all, int x, int y);
 void			julia_values(t_all *all, int x, int y);
-void			glynn_values(t_all *all, int x, int y);
+void			ship_values(t_all *all, int x, int y);
 
 /*
 ** move.c
@@ -130,5 +130,14 @@ void			zoom(int key, int x, int y, t_all *all);
 */
 
 void			print_menu(t_all *all);
+
+/*
+** distort.c
+*/
+
+void	distort_left(t_all *all);
+void	distort_right(t_all *all);
+void	distort_up(t_all *all);
+void	distort_down(t_all *all);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:40:38 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/07 18:48:25 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/08 15:01:17 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,15 @@ void	key_funct2(int key, t_all *all)
 	}
 	if (key == 35)
 	{
-		ALL = init_fract_struct(all, "Glynn");
+		ALL = init_fract_struct(all, "Ship");
 		draw(all);
 	}
+	if (key == 0)
+		distort_left(all);
+	if (key == 2)
+		distort_right(all);
+	if (key == 13)
+		distort_up(all);
+	if (key == 1)
+		distort_down(all);
 }
