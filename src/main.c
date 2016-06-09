@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 17:04:55 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/09 17:46:12 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/09 17:58:21 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		main(int ac, char **av)
 		fract = init_fract_struct(all, av[1]);
 		draw(all);
 		mlx_hook(all->mlx->win, 2, 0, key_handler, all);
-		/*mlx_hook(all->mlx->win, 6, 1, mouse_track, all);*/
+		mlx_hook(all->mlx->win, 6, 1, mouse_track, all);
 		mlx_mouse_hook(all->mlx->win, mouse_hook, all);
 		mlx_loop(all->mlx->ptr);
 		return (0);
