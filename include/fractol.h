@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/09 14:25:05 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/09 16:46:33 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void			unzoom_hook(t_all *all, t_coord coord);
 int				mouse_hook(int button, int x, int y, t_all *all);
 void			mouse_funct(int button, int x, int y, t_all *all);
 void			zoom(int key, int x, int y, t_all *all);
+int				mouse_track(int x, int y, t_all *all);
 
 /*
 ** menu.c
@@ -137,10 +138,9 @@ void			print_menu(t_all *all);
 ** distort.c
 */
 
-void	distort_left(t_all *all);
-void	distort_right(t_all *all);
-void	distort_up(t_all *all);
-void	distort_down(t_all *all);
+void			distort_left(t_all *all);
+void			distort_right(t_all *all);
+void			distort_up(t_all *all);
+void			distort_down(t_all *all);
 
-int		mouse_track(int x, int y, t_all *all);
 #endif

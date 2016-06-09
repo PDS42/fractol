@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 17:42:13 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/09 13:20:19 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/09 16:49:57 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,17 @@ t_fract		*mandel(t_all *all)
 
 t_fract		*julia(t_all *all)
 {
-	ALL->tmpd = 0.285;
-	ALL->tmpd2 = 0.01;
-	ALL->x1 = -1.5;
-	ALL->x2 = 1.5;
-	ALL->y1 = -1.5;
-	ALL->y2 = 1.5;
-	ALL->zoom = 1000;
-	ALL->iter_max = 120;
-	ALL->id = 1;
+	all->fract->tmpd = 0.285;
+	all->fract->tmpd2 = 0.01;
+	all->fract->x1 = -1.5;
+	all->fract->x2 = 1.5;
+	all->fract->y1 = -1.5;
+	all->fract->y2 = 1.5;
+	all->fract->zoom = 1000;
+	all->fract->iter_max = 70;
+	all->fract->id = 1;
+	all->fract->zoom_x = (double)all->mlx->width / (ALL->x2 - ALL->x1);
+	all->fract->zoom_y = (double)all->mlx->height / (ALL->y2 - ALL->y1);
 	return (ALL);
 }
 
