@@ -6,7 +6,7 @@
 /*   By: prichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/29 16:09:36 by prichard          #+#    #+#             */
-/*   Updated: 2016/06/08 15:13:34 by prichard         ###   ########.fr       */
+/*   Updated: 2016/06/09 14:25:05 by prichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct	s_fract
 	int			id;
 	double		zoom_x;
 	double		zoom_y;
+	double		tmpd;
+	double		tmpd2;
 	t_coord		c;
 }				t_fract;
 
@@ -140,4 +142,5 @@ void	distort_right(t_all *all);
 void	distort_up(t_all *all);
 void	distort_down(t_all *all);
 
+int		mouse_track(int x, int y, t_all *all);
 #endif

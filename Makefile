@@ -6,7 +6,7 @@
 #    By: prichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/25 14:39:00 by prichard          #+#    #+#              #
-#    Updated: 2016/06/08 15:03:18 by prichard         ###   ########.fr        #
+#    Updated: 2016/06/09 14:26:26 by prichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ SRC_NAME = 	main.c\
 			drawing.c\
 			fract_compl.c\
 			modify_iter_max.c\
-			zoom.c\
 			mouse_hook.c\
 			menu.c\
 			distort.c\
+			mouse_track.c\
 			image.c
 
 OBJ_PATH = obj
